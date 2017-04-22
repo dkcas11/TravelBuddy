@@ -1,8 +1,9 @@
 package com.travelbuddy.casperriboe.travelbuddy.Profile;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 import com.travelbuddy.casperriboe.travelbuddy.Beacon;
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.RealmManager;
-import com.travelbuddy.casperriboe.travelbuddy.TravelDetails.TravelDetailsFragment;
+import com.travelbuddy.casperriboe.travelbuddy.TripDetails.TripDetailsActivity;
 import com.travelbuddy.casperriboe.travelbuddy.Trip;
 
 import java.util.ArrayList;
@@ -67,16 +68,13 @@ public class ProfileFooterFragment extends Fragment {
 
         tripsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentManager fm = getFragmentManager();
+                Trip trip = tripList.get(position);
 
-                Fragment fragment = new TravelDetailsFragment();
+                Activity curActivity = getActivity();
 
-                fm.beginTransaction().add(R.id.container, fragment).addToBackStack("").commit();
-
-                /*fm.beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .addToBackStack("Hello")
-                        .commit();*/
+                Intent newIntent = new Intent(curActivity, TripDetailsActivity.class);
+                newIntent.putExtra("tripID", trip.getIdentifier());
+                curActivity.startActivity(newIntent);
             }
         });
     }
