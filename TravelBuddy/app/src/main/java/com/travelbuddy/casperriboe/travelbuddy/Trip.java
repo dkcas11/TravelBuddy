@@ -1,5 +1,8 @@
 package com.travelbuddy.casperriboe.travelbuddy;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
 /**
@@ -16,6 +19,7 @@ public class Trip {
 
     public Trip(Beacon startBeacon) {
         this.startBeacon = startBeacon;
+        this.beacons.add(startBeacon);
     }
 
     @Override
