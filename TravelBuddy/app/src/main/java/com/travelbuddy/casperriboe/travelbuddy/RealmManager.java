@@ -24,6 +24,10 @@ public class RealmManager  {
         user = user;
     }
 
+    public static Trip getTripByID(int id) {
+        return new Trip(new Beacon(0,0));
+    }
+
     public static ArrayList<Trip> getTrips() {
         return trips;
     }
