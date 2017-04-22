@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.travelbuddy.casperriboe.travelbuddy.Profile.ProfileHeaderFragment"
+        android:id="@+id/header_fragment"
+        tools:layout="@layout/fragment_profile_header"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.travelbuddy.casperriboe.travelbuddy.Profile.ProfileFooterFragment"
+        android:id="@+id/footer_fragment"
+        tools:layout="@layout/fragment_profile_footer"
+        android:layout_below="@+id/header_fragment"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

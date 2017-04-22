@@ -7,9 +7,9 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <ListView
+        android:id="@+id/BEACON_LIST"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/LOCATION_LIST" />
+        android:layout_alignParentTop="true" />
 </RelativeLayout>

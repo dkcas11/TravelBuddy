@@ -35,6 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/CHECKIN_BUTTON"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/flatui_emerald"
+        android:elevation="0dp" />
 
 </RelativeLayout>

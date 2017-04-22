@@ -26,11 +26,13 @@
         android:textSize="20sp" />
 
     <TextView
-        android:text="PRICE: AMOUNT"
+        android:text="PRICE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
         android:id="@+id/PRICE"
+        android:layout_marginTop="36dp"
         android:layout_below="@+id/LOCATION_START"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp" />
+
 </RelativeLayout>
