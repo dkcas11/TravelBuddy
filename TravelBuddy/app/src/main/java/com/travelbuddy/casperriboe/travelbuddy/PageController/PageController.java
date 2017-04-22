@@ -12,7 +12,6 @@ import android.os.Bundle;
 import com.travelbuddy.casperriboe.travelbuddy.Profile.ProfileFragment;
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.Travel.TravelFragment;
-import com.travelbuddy.casperriboe.travelbuddy.TravelDetails.TravelDetailsFragment;
 
 public class PageController extends AppCompatActivity {
 
@@ -82,8 +81,6 @@ public class PageController extends AppCompatActivity {
                     return TravelFragment.newInstance();
                 case 1:
                     return ProfileFragment.newInstance();
-                case 2:
-                    return TravelDetailsFragment.newInstance();
             }
             return TravelFragment.newInstance();
         }
@@ -95,8 +92,6 @@ public class PageController extends AppCompatActivity {
                     return "Travel";
                 case 1:
                     return "Profile";
-                case 2:
-                    return "Details";
             }
             return "";
         }

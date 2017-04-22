@@ -25,7 +25,7 @@ public class RealmManager  {
     }
 
     public static Trip getTripByID(int id) {
-        return new Trip(new Beacon(0,0));
+        return new Trip(new Beacon(5,1561));
     }
 
     public static ArrayList<Trip> getTrips() {

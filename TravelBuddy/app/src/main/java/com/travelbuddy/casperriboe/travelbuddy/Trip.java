@@ -58,4 +58,12 @@ public class Trip {
     public void setEndBeacon(Beacon endBeacon) {
         this.endBeacon = endBeacon;
     }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }
