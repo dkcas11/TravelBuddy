@@ -2,7 +2,6 @@ package com.travelbuddy.casperriboe.travelbuddy.Profile;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.RealmManager;
-import com.travelbuddy.casperriboe.travelbuddy.User;
+import com.travelbuddy.casperriboe.travelbuddy.Models.User;
 
 /**
  * Created by Casper on 21/04/2017.

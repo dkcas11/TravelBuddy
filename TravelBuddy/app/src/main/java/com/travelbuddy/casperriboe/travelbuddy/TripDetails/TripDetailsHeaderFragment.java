@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.travelbuddy.casperriboe.travelbuddy.R;
-import com.travelbuddy.casperriboe.travelbuddy.Trip;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
 
 /**
  * Created by Casper on 21/04/2017.

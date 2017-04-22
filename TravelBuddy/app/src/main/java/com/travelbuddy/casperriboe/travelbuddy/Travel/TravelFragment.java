@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.travelbuddy.casperriboe.travelbuddy.Beacon;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Beacon;
 import com.travelbuddy.casperriboe.travelbuddy.R;
 
 /**

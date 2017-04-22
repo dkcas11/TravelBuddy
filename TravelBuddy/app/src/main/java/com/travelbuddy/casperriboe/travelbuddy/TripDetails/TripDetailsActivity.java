@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.RealmManager;
-import com.travelbuddy.casperriboe.travelbuddy.Trip;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
 
 /**
  * Created by Casper on 21/04/2017.

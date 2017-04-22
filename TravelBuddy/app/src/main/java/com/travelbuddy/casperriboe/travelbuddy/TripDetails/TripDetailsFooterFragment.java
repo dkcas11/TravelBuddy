@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.travelbuddy.casperriboe.travelbuddy.Beacon;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Beacon;
 import com.travelbuddy.casperriboe.travelbuddy.R;
-import com.travelbuddy.casperriboe.travelbuddy.Trip;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
 
 import java.util.ArrayList;
 

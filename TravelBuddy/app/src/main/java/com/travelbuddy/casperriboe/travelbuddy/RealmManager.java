@@ -1,10 +1,10 @@
 package com.travelbuddy.casperriboe.travelbuddy;
 
-import android.content.Context;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Beacon;
+import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
+import com.travelbuddy.casperriboe.travelbuddy.Models.User;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
 
 /**
  * Created by Casper on 22-04-2017.

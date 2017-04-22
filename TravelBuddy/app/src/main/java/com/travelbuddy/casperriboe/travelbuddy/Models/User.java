@@ -1,4 +1,4 @@
-package com.travelbuddy.casperriboe.travelbuddy;
+package com.travelbuddy.casperriboe.travelbuddy.Models;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.travelbuddy.casperriboe.travelbuddy;
+package com.travelbuddy.casperriboe.travelbuddy.Models;
 
 /**
  * Created by Casper on 22-04-2017.

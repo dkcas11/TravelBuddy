@@ -1,7 +1,4 @@
-package com.travelbuddy.casperriboe.travelbuddy;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package com.travelbuddy.casperriboe.travelbuddy.Models;
 
 import java.util.ArrayList;
 
