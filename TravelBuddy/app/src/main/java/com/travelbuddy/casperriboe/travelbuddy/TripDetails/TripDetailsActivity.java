@@ -21,7 +21,12 @@ public class TripDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fragment_tripdetails);
+        try {
+            setContentView(R.layout.fragment_tripdetails);
+        } catch (Exception e) {
+            e.printStackTrace();
+            finish();
+        }
     }
 
     public Trip getTrip() {
