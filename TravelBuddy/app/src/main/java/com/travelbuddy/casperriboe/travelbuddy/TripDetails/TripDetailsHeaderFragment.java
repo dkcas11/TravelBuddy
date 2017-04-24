@@ -41,17 +41,21 @@ public class TripDetailsHeaderFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_tripdetails_header, container, false);
 
         try {
-            TripDetailsActivity activity = (TripDetailsActivity) getActivity();
-            trip = activity.getTrip();
+            commonInit(rootView);
         } catch (Exception e) {
             e.printStackTrace();
             getActivity().finish();
         }
 
-        findUIElements(rootView);
-        setUIStyles();
-
         return rootView;
+    }
+
+    private void commonInit(View view) {
+        TripDetailsActivity activity = (TripDetailsActivity) getActivity();
+        trip = activity.getTrip();
+
+        findUIElements(view);
+        setUIStyles();
     }
 
     private void findUIElements(View view) {
