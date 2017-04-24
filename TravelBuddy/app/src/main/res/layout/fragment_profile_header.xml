@@ -22,7 +22,7 @@
         app:srcCompat="@android:drawable/picture_frame"
         android:layout_below="@+id/PROFILE_NAME"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/PROFILE_IMAGE" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/PROFILE_IMAGE"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/BALANCE"
         android:textSize="18sp" />
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/BALANCE"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="8dp"
         android:id="@+id/ADD_MONEY"
         android:backgroundTint="@color/flatui_emerald"
         android:textColor="@color/colorWhite" />
