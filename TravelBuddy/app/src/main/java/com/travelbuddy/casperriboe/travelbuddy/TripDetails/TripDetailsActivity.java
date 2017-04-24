@@ -14,8 +14,6 @@ import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
 
 public class TripDetailsActivity extends AppCompatActivity {
 
-    private Trip trip;
-
     public TripDetailsActivity() {
     }
 
@@ -23,14 +21,12 @@ public class TripDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int tripID = getIntent().getIntExtra("tripID", 0);
-        trip = RealmManager.getTripByID(tripID);
-
         setContentView(R.layout.fragment_tripdetails);
     }
 
     public Trip getTrip() {
-        return trip;
+        int tripID = getIntent().getIntExtra("tripDetailsID", 0);
+        return RealmManager.getTripByID(tripID);
     }
 
 }

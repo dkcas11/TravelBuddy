@@ -60,6 +60,6 @@ public class TravelFragment extends Fragment {
     }
 
     private void setUIStyles() {
-        locationNameTextView.setText("" + new Beacon(5, 1561));
+        locationNameTextView.setText("");
     }
 }

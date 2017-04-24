@@ -22,7 +22,7 @@ public class ProfileHeaderFragment extends Fragment {
     private TextView nameTextView;
     private TextView balanceTextView;
 
-    private User user = new User("John Doe", 42.0, null);
+    private User user = new User();
 
     public ProfileHeaderFragment() {
     }
@@ -44,6 +44,7 @@ public class ProfileHeaderFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile_header, container, false);
 
+        fetchUser();
         findUIElements(rootView);
         setUIStyles();
 
@@ -62,7 +63,7 @@ public class ProfileHeaderFragment extends Fragment {
 
     private void updateUI() {
         nameTextView.setText(user.getName());
-        balanceTextView.setText("Balance: " + user.getBalance());
+        balanceTextView.setText("Balance: " + user.getBalance() + " DKK");
     }
 
     private void fetchUser() {

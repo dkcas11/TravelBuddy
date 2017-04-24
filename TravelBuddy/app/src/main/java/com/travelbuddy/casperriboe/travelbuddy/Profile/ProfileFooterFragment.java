@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.travelbuddy.casperriboe.travelbuddy.Models.Beacon;
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.RealmManager;
 import com.travelbuddy.casperriboe.travelbuddy.TripDetails.TripDetailsActivity;
@@ -41,12 +40,7 @@ public class ProfileFooterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_profile_footer, container, false);
 
-        tripList = RealmManager.getTrips();
-        Trip trip = new Trip(new Beacon(0,0));
-        tripList.add(trip);
-        tripList.add(trip);
-        tripList.add(trip);
-
+        fetchTrips();
         findUIElements(rootView);
         setUIStyles();
 
@@ -73,7 +67,7 @@ public class ProfileFooterFragment extends Fragment {
                 Activity curActivity = getActivity();
 
                 Intent newIntent = new Intent(curActivity, TripDetailsActivity.class);
-                newIntent.putExtra("tripID", trip.getIdentifier());
+                newIntent.putExtra("tripDetailsID", trip.getIdentifier());
                 curActivity.startActivity(newIntent);
             }
         });
@@ -83,7 +77,6 @@ public class ProfileFooterFragment extends Fragment {
     }
 
     private void updateUI() {
-        tripList = RealmManager.getTrips();
         tripsListViewAdapter.notifyDataSetChanged();
     }
 
