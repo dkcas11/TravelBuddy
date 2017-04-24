@@ -2,12 +2,9 @@ package com.travelbuddy.casperriboe.travelbuddy.Models;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -23,6 +20,12 @@ public class User extends RealmObject {
     private RealmList<Trip> trips;
 
     public User () {
+    }
+
+    public User(String name) {
+        setName(name);
+        setBalance(0.);
+        ensureTrips();
     }
 
     @Override
@@ -47,10 +50,12 @@ public class User extends RealmObject {
     }
 
     public RealmList<Trip> getTrips() {
+        ensureTrips();
         return trips;
     }
 
     public ArrayList<Trip> getTripsAsArrayList() {
+        ensureTrips();
         Iterator i = trips.iterator();
         ArrayList<Trip> rTrips = new ArrayList<>();
 
@@ -66,9 +71,13 @@ public class User extends RealmObject {
     }
 
     public void addtrip(Trip trip) {
+        ensureTrips();
+        trips.add(trip);
+    }
+
+    public void ensureTrips() {
         if (trips == null) {
             trips = new RealmList<>();
         }
-        trips.add(trip);
     }
 }

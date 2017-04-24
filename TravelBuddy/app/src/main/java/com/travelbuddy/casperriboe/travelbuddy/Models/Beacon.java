@@ -14,6 +14,11 @@ public class Beacon extends RealmObject {
     public Beacon() {
     }
 
+    public Beacon(int major, int minor) {
+        setMajor(major);
+        setMinor(minor);
+    }
+
     @Override
     public String toString() {
         String s = "";

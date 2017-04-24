@@ -1,14 +1,10 @@
 package com.travelbuddy.casperriboe.travelbuddy.Models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 import io.realm.annotations.PrimaryKey;
 
 /**
@@ -25,6 +21,13 @@ public class Trip extends RealmObject{
     private Double price;
 
     public Trip() {
+    }
+
+    public Trip(Beacon startBeacon) {
+        setStartBeacon(startBeacon);
+        setEndBeacon(startBeacon);
+        addBeacon(startBeacon);
+        setPrice(0.);
     }
 
     @Override
@@ -60,9 +63,7 @@ public class Trip extends RealmObject{
     }
 
     public void addBeacon(Beacon beacon) {
-        if (beacons == null) {
-            beacons = new RealmList<>();
-        }
+        ensureBeacons();
         beacons.add(beacon);
     }
 
@@ -71,18 +72,17 @@ public class Trip extends RealmObject{
     }
 
     public void setStartBeacon(Beacon startBeacon) {
-        if (beacons == null) {
-            beacons = new RealmList<>();
-        }
+        ensureBeacons();
         this.startBeacon = startBeacon;
     }
 
     public Beacon getEndBeacon() {
-
+        ensureBeacons();
         return endBeacon;
     }
 
     public void setEndBeacon(Beacon endBeacon) {
+        ensureBeacons();
         this.endBeacon = endBeacon;
     }
 
@@ -92,5 +92,11 @@ public class Trip extends RealmObject{
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public void ensureBeacons() {
+        if (beacons == null) {
+            beacons = new RealmList<>();
+        }
     }
 }
