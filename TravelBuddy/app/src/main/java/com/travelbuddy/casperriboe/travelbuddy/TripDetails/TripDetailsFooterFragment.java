@@ -14,6 +14,9 @@ import com.travelbuddy.casperriboe.travelbuddy.Models.Trip;
 
 import java.util.ArrayList;
 
+import io.realm.RealmBaseAdapter;
+import io.realm.RealmResults;
+
 /**
  * Created by Casper on 21/04/2017.
  */
@@ -40,7 +43,7 @@ public class TripDetailsFooterFragment extends Fragment {
         try {
             TripDetailsActivity activity = (TripDetailsActivity) getActivity();
             Trip tripFromActivity = activity.getTrip();
-            beaconList = tripFromActivity.getBeacons();
+            beaconList = tripFromActivity.getBeaconsAsArrayList();
         } catch (Exception e) {
             e.printStackTrace();
             getActivity().finish();

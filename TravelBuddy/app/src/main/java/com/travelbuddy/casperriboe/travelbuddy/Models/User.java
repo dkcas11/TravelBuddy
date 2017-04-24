@@ -1,21 +1,33 @@
 package com.travelbuddy.casperriboe.travelbuddy.Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Casper on 22-04-2017.
  */
 
-public class User {
+public class User extends RealmObject {
 
-    private String name = "";
-    private Double balance = 0.0;
-    private ArrayList<Trip> trips = new ArrayList<Trip>();
+    @PrimaryKey
+    private int identifier;
+    private String name;
+    private Double balance;
+    private RealmList<Trip> trips;
 
-    public User(String name, Double balance, ArrayList<Trip> trips) {
-        this.name = name;
-        this.balance = balance;
-        this.trips = trips;
+    public User () {
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 
     public String getName() {
@@ -34,11 +46,29 @@ public class User {
         this.balance = balance;
     }
 
-    public ArrayList<Trip> getTrips() {
+    public RealmList<Trip> getTrips() {
         return trips;
     }
 
-    public void setTrips(ArrayList<Trip> trips) {
+    public ArrayList<Trip> getTripsAsArrayList() {
+        Iterator i = trips.iterator();
+        ArrayList<Trip> rTrips = new ArrayList<>();
+
+        while (i.hasNext()) {
+            rTrips.add((Trip) i.next());
+        }
+
+        return rTrips;
+    }
+
+    public void setTrips(RealmList<Trip> trips) {
         this.trips = trips;
+    }
+
+    public void addtrip(Trip trip) {
+        if (trips == null) {
+            trips = new RealmList<>();
+        }
+        trips.add(trip);
     }
 }
