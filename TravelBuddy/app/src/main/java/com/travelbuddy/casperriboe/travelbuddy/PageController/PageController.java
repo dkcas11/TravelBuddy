@@ -9,30 +9,21 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
+import com.estimote.coresdk.common.config.EstimoteSDK;
+import com.estimote.coresdk.common.requirements.SystemRequirementsChecker;
 import com.travelbuddy.casperriboe.travelbuddy.Profile.ProfileFragment;
 import com.travelbuddy.casperriboe.travelbuddy.R;
 import com.travelbuddy.casperriboe.travelbuddy.Travel.TravelFragment;
 
 public class PageController extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_page_controller);
 
         // Create the adapter that will return a fragment for each of the three
@@ -45,23 +36,22 @@ public class PageController extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-*/
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //  To get your AppId and AppToken you need to create new application in Estimote Cloud.
+        String appId = "casper2602-hotmail-com-s-y-8ph";
+        String appToken = "bdd4a18599b436827c8af2b56c2e0baa";
+        EstimoteSDK.initialize(getBaseContext(), appId, appToken);
+        // Optional, debug logging.
+        EstimoteSDK.enableDebugLogging(true);
+
+        SystemRequirementsChecker.checkWithDefaultDialogs(this);
+    }
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
