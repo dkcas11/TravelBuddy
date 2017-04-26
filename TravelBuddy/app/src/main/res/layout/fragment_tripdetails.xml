@@ -11,14 +11,7 @@
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_tripdetails_header"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <fragment
-        android:id="@+id/footer_fragment"
-        android:name="com.travelbuddy.casperriboe.travelbuddy.TripDetails.TripDetailsFooterFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/header_fragment"
         android:layout_centerHorizontal="true"
-        tools:layout="@layout/fragment_tripdetails_footer" />
+        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>

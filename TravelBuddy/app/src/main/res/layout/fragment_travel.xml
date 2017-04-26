@@ -21,14 +21,19 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="LOCATION_NAME"
+        android:text="NAME"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:id="@+id/LOCATION_NAME"
-        android:textSize="20sp" />
+        android:background="@drawable/bg_round_big"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/white" />
 
     <Button
         android:text="Check In"
@@ -37,7 +42,7 @@
         android:id="@+id/CHECKIN_BUTTON"
         android:layout_alignParentBottom="true"
         android:textColor="@color/colorWhite"
-        android:backgroundTint="@color/flatui_emerald"
+        android:backgroundTint="@color/colorPrimary"
         android:elevation="0dp" />
 
 </RelativeLayout>

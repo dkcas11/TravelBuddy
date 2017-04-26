@@ -5,48 +5,45 @@ import java.util.Iterator;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Casper on 22-04-2017.
  */
 
-public class Trip extends RealmObject{
+public class Trip extends RealmObject {
 
-    @PrimaryKey private int identifier;
-    private int userIdentifier;
-    private RealmList<Beacon> beacons;
-    private Beacon startBeacon;
-    private Beacon endBeacon;
-    private Double price;
+    private RealmList<Beacon> beacons = new RealmList<>();
+    private Beacon startBeacon = new Beacon();
+    private Beacon endBeacon = new Beacon();
+    private Double price = 0.0;
 
+    /**
+     * Creates an empty Trip (used by Realm).
+     */
     public Trip() {
     }
 
-    public Trip(Beacon startBeacon) {
-        setStartBeacon(startBeacon);
-        setEndBeacon(startBeacon);
-        addBeacon(startBeacon);
-        setPrice(0.);
-    }
-
+    /**
+     * Returns a formatted string that displays the price, start beacon and end beacon of the trip.
+     * @return
+     */
     @Override
     public String toString() {
-        return "From " + startBeacon + " to " + endBeacon + ". Price: " + price + " DKK";
+        return price + " DKK: From " + startBeacon + " to " + endBeacon;
     }
 
-    public int getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(int identifier) {
-        this.identifier = identifier;
-    }
-
+    /**
+     * Returns the beacons of the trip.
+     * @return the beacons of the trip
+     */
     public RealmList<Beacon> getBeacons() {
         return beacons;
     }
 
+    /**
+     * Returns the beacons of the trip converted to an ArrayList.
+     * @return the beacons of the trip converted to an ArrayList.
+     */
     public ArrayList<Beacon> getBeaconsAsArrayList() {
         Iterator i = beacons.iterator();
         ArrayList<Beacon> rBeacons = new ArrayList<>();
@@ -58,45 +55,63 @@ public class Trip extends RealmObject{
         return rBeacons;
     }
 
-    public void setBeacons(RealmList<Beacon> beacons) {
-        this.beacons = beacons;
-    }
-
+    /**
+     * Adds a beacon to the list of beacons.
+     * @param beacon the beacon to add the list of beacons.
+     */
     public void addBeacon(Beacon beacon) {
-        ensureBeacons();
         beacons.add(beacon);
     }
 
+    /**
+     * Returns the start beacon of the trip.
+     * @return the start beacon of the trip.
+     */
     public Beacon getStartBeacon() {
         return startBeacon;
     }
 
+    /**
+     * Sets the start beacon of the trip.
+     * @param startBeacon the start beacon of the trip.
+     */
     public void setStartBeacon(Beacon startBeacon) {
-        ensureBeacons();
         this.startBeacon = startBeacon;
     }
 
+    /**
+     * Returns the start beacon of the trip.
+     * @return the start beacon of the trip.
+     */
     public Beacon getEndBeacon() {
-        ensureBeacons();
         return endBeacon;
     }
 
+    /**
+     * Sets the end beacon of the trip.
+     * @param endBeacon the end beacon of the trip.
+     */
     public void setEndBeacon(Beacon endBeacon) {
-        ensureBeacons();
         this.endBeacon = endBeacon;
+
+        Double price = 25.0;
+        setPrice(price);
     }
 
+    /**
+     * Returns the price of the trip.
+     * @return the price of the trip.
+     */
     public Double getPrice() {
         return price;
     }
 
+    /**
+     * Sets the price of the trip.
+     * @param price the price of the trip.
+     */
     public void setPrice(Double price) {
         this.price = price;
     }
 
-    public void ensureBeacons() {
-        if (beacons == null) {
-            beacons = new RealmList<>();
-        }
-    }
 }

@@ -14,7 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/PROFILE_NAME"
-        android:textSize="20sp" />
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -33,7 +35,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         android:id="@+id/BALANCE"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center" />
 
     <Button
         android:text="ADD_MONEY"
@@ -43,6 +47,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:id="@+id/ADD_MONEY"
-        android:backgroundTint="@color/flatui_emerald"
+        android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/colorWhite" />
 </RelativeLayout>

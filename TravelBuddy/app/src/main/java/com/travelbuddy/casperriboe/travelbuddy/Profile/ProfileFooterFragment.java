@@ -26,15 +26,22 @@ public class ProfileFooterFragment extends Fragment {
 
     private ListView tripsListView;
     private ArrayAdapter<Trip> tripsListViewAdapter;
-    private ArrayList<Trip> tripList;
+    private ArrayList<Trip>tripList = new ArrayList<>();
 
+    /**
+     * The public constructor of the ProfileFooterFragment.
+     * Currently does nothing.
+     */
     public ProfileFooterFragment() {
     }
 
-    public static ProfileFooterFragment newInstance() {
-        return new ProfileFooterFragment();
-    }
-
+    /**
+     * Creates a new view of of the fragment.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return the view of the fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,19 +49,25 @@ public class ProfileFooterFragment extends Fragment {
 
         fetchTrips();
         findUIElements(rootView);
-        setUIStyles();
+        setUserVisibleHint(true);
 
         return rootView;
     }
 
+    /**
+     * Resumes the fragment and invalidates the view.
+     */
     @Override
     public void onResume() {
         super.onResume();
 
-        fetchTrips();
-        updateUI();
+        invalidate();
     }
 
+    /**
+     * Finds all UI Elements and connects them to the fragment's fields.
+     * @param view The view to connect to.
+     */
     private void findUIElements(View view) {
         tripsListView = (ListView) view.findViewById(R.id.TRIP_LIST);
         tripsListViewAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, tripList);
@@ -62,26 +75,37 @@ public class ProfileFooterFragment extends Fragment {
 
         tripsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Trip trip = tripList.get(position);
-
                 Activity curActivity = getActivity();
 
                 Intent newIntent = new Intent(curActivity, TripDetailsActivity.class);
-                newIntent.putExtra("tripDetailsID", trip.getIdentifier());
+                newIntent.putExtra("tripDetailsID", position);
                 curActivity.startActivity(newIntent);
             }
         });
     }
 
-    private void setUIStyles() {
+    /**
+     * Retrieves the current data in the database and updates the view.
+     */
+    public void invalidate() {
+        fetchTrips();
+        updateUI();
+        System.out.println("PROFILE FOOTER WAS INVALIDATED");
     }
 
+    /**
+     * Updates the view.
+     */
     private void updateUI() {
-        tripsListViewAdapter.notifyDataSetChanged();
+        // For some reason notifyDataChanged doesn't work, so a new adapter is just created instead.
+        tripsListViewAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, tripList);
+        tripsListView.setAdapter(tripsListViewAdapter);
     }
 
+    /**
+     * Updates the data to the current data in the database.
+     */
     private void fetchTrips() {
-        tripList = RealmManager.getTrips();
+        tripList = RealmManager.getInstance().getTripsAsArrayList();
     }
-
 }

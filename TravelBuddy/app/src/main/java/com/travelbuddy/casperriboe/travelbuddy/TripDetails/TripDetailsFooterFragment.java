@@ -24,13 +24,20 @@ public class TripDetailsFooterFragment extends Fragment {
     private ArrayAdapter<Beacon> beaconListViewAdapter;
     private ArrayList<Beacon> beaconList;
 
+    /**
+     * The public constructor of the TripDetailsFooterFragment.
+     * Currently does nothing.
+     */
     public TripDetailsFooterFragment() {
     }
 
-    public static TripDetailsFooterFragment newInstance() {
-        return new TripDetailsFooterFragment();
-    }
-
+    /**
+     * Creates a new view of of the fragment.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return the view of the fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,15 +54,21 @@ public class TripDetailsFooterFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * A common initialiser.
+     * @param view the view to initialise from.
+     */
     public void commonInit(View view) {
         TripDetailsActivity activity = (TripDetailsActivity) getActivity();
         Trip tripFromActivity = activity.getTrip();
         beaconList = tripFromActivity.getBeaconsAsArrayList();
 
         findUIElements(view);
-        setUIStyles();
     }
 
+    /**
+     * Resumes the view and updates the view.
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -63,15 +76,19 @@ public class TripDetailsFooterFragment extends Fragment {
         updateUI();
     }
 
+    /**
+     * Finds all UI Elements and connects them to the fragment's fields.
+     * @param view The view to connect to.
+     */
     private void findUIElements(View view) {
         beaconListView = (ListView) view.findViewById(R.id.BEACON_LIST);
         beaconListViewAdapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, beaconList);
         beaconListView.setAdapter(beaconListViewAdapter);
     }
 
-    private void setUIStyles() {
-    }
-
+    /**
+     * Updates the UI elements.
+     */
     private void updateUI() {
         beaconListViewAdapter.notifyDataSetChanged();
     }
