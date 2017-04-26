@@ -3,7 +3,7 @@
 ### Features
 ###### Register Trips
 - See current nearest beacon
-- Start at one beacon, end at another. Price is based on time
+- Start at one beacon, end at another. Price is fixed
 - Optionally pickup beacons passed to calculate price in beacons passed (fake distance)
 
 ###### Administrate Account
